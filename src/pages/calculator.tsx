@@ -17,6 +17,14 @@ export default function calculator(){
     const [operator, setOperator] = useState<string[]>([]);
     const [numerosSelecionado, setNumerosSelecionado] = useState<number[]>([])
 
+    const handleClear = () => {
+        setDisplay("0");
+        setNumerosSelecionado([]);
+        setOperator([]);
+        setResult(null);
+    }
+
+
     const adicionarSimbolo = (sym:string) =>{
         setOperator(prevoperator => [...prevoperator, sym])
         setDisplay(prevDisplay => {
@@ -75,7 +83,11 @@ export default function calculator(){
                     </button>
                 )}
                 </div>
-                <div>{symbol.map(({lable, fun}) => (<button key={lable} onClick={()=>{if(lable === "="){calcular();}else{adicionarSimbolo(lable)}}}
+                <div>{symbol.map(({lable, fun}) => (<button key={lable} 
+                onClick={()=>{if(lable === "="){calcular();
+                }else if(lable === "C")
+                    {handleClear()
+                }else{adicionarSimbolo(lable)}}}
                  className="p-4 border rounded hover:bg-blue-200">{lable}
                  </button>))}</div>
                

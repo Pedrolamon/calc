@@ -18,6 +18,6 @@ export function mult (g:number, h: number){
 }
 
 export function C (){
-    return 0
+    return 
 }
 
