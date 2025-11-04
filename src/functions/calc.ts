@@ -16,8 +16,3 @@ export function div (e:number,f:number){
 export function mult (g:number, h: number){
     return g * h
 }
-
-export function C (){
-    return 
-}
-

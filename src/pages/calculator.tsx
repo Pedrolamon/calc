@@ -1,16 +1,15 @@
-import React, {useState, useEffect} from "react";
+import  {useState} from "react";
 
 //funçoes 
 import { sum } from "../functions/calc";
 import { sub } from "../functions/calc";
 import { div } from "../functions/calc";
 import { mult } from "../functions/calc";
-import { C } from "../functions/calc";
 
 
 export default function calculator(){
     const number = [1 ,2 ,3 ,4 ,5 ,6 ,7 ,8 ,9];
-    const symbol = [{lable:"+", fun: sum },{ lable:"-", fun:sub },{lable: "/", fun: div }, {lable:"*", fun: mult}, {lable:"C", fun: C }, {lable:"=", fun: null}];
+    const symbol = [{lable:"+", fun: sum },{ lable:"-", fun:sub },{lable: "/", fun: div }, {lable:"*", fun: mult}, {lable:"C", fun: null }, {lable:"=", fun: null}];
 
     const [result , setResult] = useState<number | null>(null);
     const [display, setDisplay] = useState("0");
@@ -68,12 +67,11 @@ export default function calculator(){
     };
    
     return(
-            <div>
+            <div className="">
                 <h1> canculadora</h1>
-               <div className="border max-w-56 flex justify-center">
-                <button>{display}</button> 
+               <div className="border  flex justify-center">
+                <button className="flex justify-center">{display}</button> 
                 </div>
-                <div className="border max-w-56 flex justify-center"><button>{result}</button></div>
                 <div className="flex justify-center">
                 <div>{number.map(num => 
                     <button  key={num}
@@ -83,7 +81,7 @@ export default function calculator(){
                     </button>
                 )}
                 </div>
-                <div>{symbol.map(({lable, fun}) => (<button key={lable} 
+                <div>{symbol.map(({lable}) => (<button key={lable} 
                 onClick={()=>{if(lable === "="){calcular();
                 }else if(lable === "C")
                     {handleClear()
