@@ -101,7 +101,7 @@ frutas.map((fruta)=>{
   fruta.preco_kg.toLocaleString()
 })
 //cria um novo array com todos os elemento que passarma na condição 
-const promoção = frutas.filter((fruta)=>fruta.preco_kg < 8)
+frutas.filter((fruta)=>fruta.preco_kg < 8)
 //retorna o indice no array do primeiro elemento que satisfizer a condição 
 frutas.findIndex((aleatorio)=> aleatorio.peso_gramas <= 0,15)
 // retorna o valor do primeiro elemento do array que satisfizer a condição, caso contrario undefined
